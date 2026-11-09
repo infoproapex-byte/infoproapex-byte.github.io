@@ -3,159 +3,200 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>ProApex — Catalogue</title>
+<title>Kitchen, Bedroom & Bathroom Fitter in Warwickshire, Northamptonshire & Leicestershire | ProApex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#0f1b2d;--bg2:#16263d;--ink:#f4f6fa;--mut:#9fb0c8;--acc:#f5a623;--line:#25395a}
-*{box-sizing:border-box;margin:0}
-html,body{height:100%}
-body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--ink);overflow:hidden}
-header{position:fixed;top:0;left:0;right:0;z-index:20;height:calc(56px + env(safe-area-inset-top));padding:env(safe-area-inset-top) 16px 0;display:flex;align-items:center;justify-content:space-between;background:rgba(15,27,45,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.logo{font-weight:800;font-size:22px;letter-spacing:.3px}.logo b{color:var(--acc)}
-nav{display:flex;gap:6px}
-nav button{background:none;border:0;color:var(--mut);font:600 14px inherit;font-family:inherit;padding:8px 12px;border-radius:20px;cursor:pointer}
-nav button.on{background:var(--acc);color:#1a1200}
-.call{background:var(--acc);color:#1a1200;text-decoration:none;font-weight:700;font-size:14px;padding:9px 14px;border-radius:20px;white-space:nowrap}
-main{position:fixed;inset:0;padding-top:calc(56px + env(safe-area-inset-top))}
-.view{display:none;height:100%}.view.on{display:block}
-#home{overflow-y:auto;padding-bottom:env(safe-area-inset-bottom)}
-.wrap{max-width:900px;margin:0 auto;padding:0 18px}
-.hero{padding:56px 0 40px;background:linear-gradient(180deg,var(--bg2),var(--bg))}
-.hero h1{font-size:clamp(40px,10vw,72px);line-height:1;font-style:italic}
-.hero h1 span{color:var(--acc)}
-.hero p{margin:18px 0 24px;color:var(--mut);font-size:17px;line-height:1.5;max-width:560px}
-.btns{display:flex;gap:10px;flex-wrap:wrap}
-.btn{border:0;cursor:pointer;font:700 15px inherit;font-family:inherit;text-decoration:none;padding:13px 20px;border-radius:12px;background:var(--acc);color:#1a1200}
-.btn.alt{background:transparent;color:var(--ink);border:1px solid var(--line)}
-h2{font-size:26px;margin:36px 0 14px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
-.card{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:18px;cursor:pointer;transition:transform .15s}
-.card:active{transform:scale(.98)}
-.card .ic{font-size:30px}.card h3{margin:8px 0 4px;font-size:18px}.card p{color:var(--mut);font-size:14px;line-height:1.4}
-.card em{display:block;margin-top:10px;color:var(--acc);font-style:normal;font-weight:600;font-size:14px}
-ol{list-style:none;padding:0;display:grid;gap:10px}
-ol li{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;color:var(--mut);font-size:14px}
-ol li b{display:block;color:var(--ink);font-size:16px;margin-bottom:2px}
-footer{padding:36px 0 48px;text-align:center;color:var(--mut);font-size:13px}
-/* CATALOG */
-#cat{position:relative}
-#snap{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory;overscroll-behavior:contain;scrollbar-width:none}
-#snap::-webkit-scrollbar{display:none}
-.slide{height:100%;scroll-snap-align:start;scroll-snap-stop:always;position:relative;overflow:hidden;background:var(--bg2)}
-.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px;color:var(--mut);font-size:14px;background:repeating-linear-gradient(45deg,#16263d,#16263d 20px,#1a2d49 20px,#1a2d49 40px)}
-.shade{position:absolute;left:0;right:0;bottom:0;height:60%;background:linear-gradient(transparent,rgba(8,14,24,.92))}
-.info{position:absolute;left:0;right:0;bottom:0;padding:20px 70px calc(24px + env(safe-area-inset-bottom)) 18px;max-width:700px}
-.tag{display:inline-block;font-size:12px;font-weight:700;background:rgba(245,166,35,.18);color:var(--acc);padding:4px 10px;border-radius:12px;margin-bottom:8px}
-.info h3{font-size:26px;line-height:1.15}
-.info p{color:#cdd8e8;font-size:14px;margin:6px 0 10px;line-height:1.4}
-.price{font-size:24px;font-weight:800;color:var(--acc)}.price small{font-size:12px;color:var(--mut);font-weight:500;margin-left:6px}
-.info .btn{display:inline-block;margin-top:12px;padding:11px 18px}
-.hint{position:absolute;top:12px;left:50%;transform:translateX(-50%);z-index:5;background:rgba(15,27,45,.8);padding:6px 14px;border-radius:20px;font-size:12px;color:var(--mut);pointer-events:none;transition:opacity .5s}
-.dots{position:absolute;right:12px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:7px;z-index:5;max-height:70%;overflow:hidden}
-.dots i{width:6px;height:6px;border-radius:3px;background:rgba(255,255,255,.35);transition:.2s}
-.dots i.on{background:var(--acc);height:20px}
-.count{position:absolute;right:14px;bottom:calc(24px + env(safe-area-inset-bottom));z-index:5;font-size:13px;color:var(--mut)}
-@media(min-width:700px){.slide img{object-fit:contain;background:#0a1320}}
+:root{
+  --bg:#F5F6F3; --surface:#FFFFFF; --ink:#16231F; --muted:#51605B;
+  --deep:#0E4B3F; --deep-ink:#F5F6F3; --wood:#D8B98C; --line:#D9DDD8; --accent:#A66F1B;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#101A18;--surface:#1725222;--surface:#182623;--ink:#EEF1EE;--muted:#A3B0AB;--deep:#0B1412;--deep-ink:#EEF1EE;--line:#2A3A36;--accent:#E0A94F}
+}
+:root[data-theme="dark"]{--bg:#101A18;--surface:#182623;--ink:#EEF1EE;--muted:#A3B0AB;--deep:#0B1412;--deep-ink:#EEF1EE;--line:#2A3A36;--accent:#E0A94F}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Barlow Condensed","Arial Narrow",sans-serif;font-weight:700;line-height:1.05;margin:0;letter-spacing:.01em}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--deep);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--deep);color:var(--deep-ink)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:1rem}
+.brand{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.5rem;text-decoration:none}
+nav{display:flex;gap:1.25rem;align-items:center}
+nav a{text-decoration:none;font-size:.95rem}
+nav a:hover{text-decoration:underline}
+.btn{display:inline-block;background:var(--wood);color:#16231F;font-weight:600;padding:.8rem 1.4rem;border-radius:4px;text-decoration:none;border:0;cursor:pointer;font:inherit;font-weight:600}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.hero{background:var(--deep);color:var(--deep-ink);padding:4.5rem 0 0}
+.hero h1{font-size:clamp(2.8rem,8vw,5.6rem);max-width:12ch}
+.hero p{max-width:52ch;font-size:1.2rem;margin:1.25rem 0 2rem;color:#D4DCD8}
+.hero .cta{display:flex;gap:.75rem;flex-wrap:wrap;padding-bottom:3.5rem}
+.tape{height:46px;background:var(--wood);position:relative;color:#16231F;overflow:hidden}
+.tape::before{content:"";position:absolute;inset:0;
+  background:
+   repeating-linear-gradient(90deg,#16231F 0 2px,transparent 2px 10px) bottom/100% 12px no-repeat,
+   repeating-linear-gradient(90deg,#16231F 0 2px,transparent 2px 50px) bottom/100% 24px no-repeat}
+.tape span{position:absolute;top:5px;font:700 .8rem "Barlow Condensed",sans-serif;transform:translateX(-50%)}
+section{padding:4.5rem 0}
+section h2{font-size:clamp(2rem,5vw,3rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:60ch;margin:0 0 2.25rem}
+.grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.grid>div{background:var(--surface);padding:1.5rem}
+.grid h3{font-size:1.5rem;margin-bottom:.4rem}
+.grid p{margin:0;color:var(--muted);font-size:1rem}
+.alt{background:var(--surface);border-block:1px solid var(--line)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1.5rem;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));counter-reset:s}
+.steps li{counter-increment:s;border-top:4px solid var(--wood);padding-top:1rem}
+.steps li::before{content:"Step " counter(s);display:block;color:var(--accent);font-weight:600;font-size:.9rem;margin-bottom:.25rem}
+.steps h3{font-size:1.4rem;margin-bottom:.3rem}
+.steps p{margin:0;color:var(--muted)}
+.work{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.shot{aspect-ratio:4/3;border:2px dashed var(--line);border-radius:4px;display:grid;place-items:center;text-align:center;padding:1rem;color:var(--muted);font-size:.95rem}
+.quote{border-left:4px solid var(--wood);padding:.25rem 0 .25rem 1.25rem;margin:0 0 1.5rem;max-width:62ch}
+.quote p{margin:0 0 .35rem;font-size:1.15rem}
+.quote cite{color:var(--muted);font-style:normal;font-size:.95rem}
+.split{display:grid;gap:3rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.areas{columns:2;padding:0;margin:0;list-style:none;color:var(--muted)}
+.areas li{padding:.2rem 0}
+form{display:grid;gap:.9rem}
+label{font-weight:600;font-size:.95rem;display:grid;gap:.3rem}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:4px;padding:.7rem .8rem;width:100%}
+textarea{min-height:120px;resize:vertical}
+.contact-info p{margin:.2rem 0}
+.contact-info a{font-size:1.4rem;font-weight:600}
+footer{background:var(--deep);color:#C7D1CD;padding:2rem 0 calc(2rem + env(safe-area-inset-bottom,0px));font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+@media (max-width:640px){nav a:not(.btn){display:none}.areas{columns:1}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">Pro<b>Apex</b></div>
-  <nav><button id="nh" class="on">Home</button><button id="nc">Catalogue</button></nav>
-  <a class="call" href="tel:07775877746">📞 Call</a>
+  <div class="wrap">
+    <a class="brand" href="#top">ProApex Fitters</a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#work">Work</a>
+      <a href="#contact" class="btn">Get a quote</a>
+    </nav>
+  </div>
 </header>
 
-<main>
-  <!-- HOME -->
-  <section id="home" class="view on">
-    <div class="hero"><div class="wrap">
-      <h1>Fitted.<br><span>Finished.</span><br>Made good.</h1>
-      <p>Supplied and fitted by one team. The price you see in the catalogue includes fitting, with no hidden extras.</p>
-      <div class="btns">
-        <button class="btn" onclick="show('cat')">View catalogue</button>
-        <a class="btn alt" href="tel:07775877746">📞 07775 877746</a>
-      </div>
-    </div></div>
+<main id="top">
+  <div class="hero">
     <div class="wrap">
-      <h2>What we sell</h2>
-      <div class="grid" id="cats"></div>
-      <h2>No hidden costs</h2>
-      <ol>
-        <li><b>1. See the price</b>Catalogue price includes fitting.</li>
-        <li><b>2. Sign the contract</b>Written, read and approved by both sides.</li>
-        <li><b>3. Deposit on delivery</b>Paid as agreed, before we bring the product in.</li>
-        <li><b>4. Fit, repair, finish</b>One team, one complete job.</li>
-      </ol>
-      <footer>© 2026 ProApex · <a style="color:var(--acc)" href="tel:07775877746">07775 877746</a></footer>
+      <h1>Fitted right, first time.</h1>
+      <p>Dedicated Wren Kitchens fitters: quality installation and aftercare. Careful measuring, tidy workmanship and a finish you’ll be proud of, on time and as agreed.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Request a free quote</a>
+        <a class="btn ghost" href="tel:+447775877746">Call 07775 877746</a>
+      </div>
+    </div>
+    <div class="tape" aria-hidden="true">
+      <span style="left:10%">10</span><span style="left:30%">30</span><span style="left:50%">50</span><span style="left:70%">70</span><span style="left:90%">90</span>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <h2>What I fit</h2>
+      <p class="lead">I fit Wren Kitchens only, so every job is done to their standards, with quality installation and aftercare. From a single replacement unit to a whole-home project, everything is measured, levelled and finished properly.</p>
+      <div class="grid">
+        <div><h3>Fitted kitchens</h3><p>Wren kitchens: units, worktops, appliances and finishing, fitted as one complete project.</p></div>
+        <div><h3>Fitted bedrooms</h3><p>Wardrobes, sliding robes, chests and bedside units, made to measure and fitted neatly.</p></div>
+        <div><h3>Bathrooms</h3><p>Full bathroom installation, from stripping out to final fixtures and sealing.</p></div>
+        <div><h3>Home offices</h3><p>Fitted desks, shelving and storage, planned around how you work.</p></div>
+        <div><h3>Living spaces</h3><p>Media walls, alcove storage, bookshelves, playrooms, games rooms and boot rooms.</p></div>
+        <div><h3>Worktops</h3><p>Laminate, wood and stone templating and fitting, with clean joints and cut-outs.</p></div>
+        <div><h3>Appliances</h3><p>Ovens, hobs, extractors, dishwashers and integrated fridges fitted and tested.</p></div>
+        <div><h3>Doors and windows</h3><p>Internal and external doors and windows, fitted level and sealed, with finishing around.</p></div>
+        <div><h3>Painting and finishing</h3><p>Painting, cornices, plinths and adjustments, so the job is left complete and made good.</p></div>
+      </div>
     </div>
   </section>
 
-  <!-- CATALOG -->
-  <section id="cat" class="view">
-    <div class="hint" id="hint">⬆ Swipe up</div>
-    <div class="dots" id="dots"></div>
-    <div class="count" id="count"></div>
-    <div id="snap"></div>
+  <section id="process" class="alt">
+    <div class="wrap">
+      <h2>How a job runs</h2>
+      <p class="lead">Your design comes from a Wren Kitchens designer, and my team fits it. You know what is happening and when, from first call to final check.</p>
+      <ol class="steps">
+        <li><h3>Design</h3><p>A Wren Kitchens designer plans your kitchen or bedroom with you and agrees the layout.</p></li>
+        <li><h3>Survey</h3><p>I check the room, measurements and plans before any work begins.</p></li>
+        <li><h3>Prepare</h3><p>Floors and walls are protected and the old kitchen is removed safely.</p></li>
+        <li><h3>Fit</h3><p>Units are levelled, secured and aligned, then worktops and appliances go in.</p></li>
+        <li><h3>Hand over</h3><p>A full walk-through together, and the space left clean and tidy.</p></li>
+        <li><h3>Aftercare</h3><p>If anything needs adjusting after the fit, I come back and put it right.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Recent work</h2>
+      <p class="lead">Replace these boxes with photos of your own finished kitchens.</p>
+      <div class="work">
+        <div class="shot">Photo: shaker kitchen with island</div>
+        <div class="shot">Photo: handleless kitchen</div>
+        <div class="shot">Photo: worktop and sink detail</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>What customers say</h2>
+      <p class="lead">Add real reviews here once you have permission to use them.</p>
+      <blockquote class="quote"><p>“Neat, on time and kept the house clean. The kitchen looks fantastic.”</p><cite>Customer name, Town</cite></blockquote>
+      <blockquote class="quote"><p>“Sorted a tricky corner run that two others had avoided. Very professional.”</p><cite>Customer name, Town</cite></blockquote>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap split">
+      <div class="contact-info">
+        <h2>Get a free quote</h2>
+        <p class="lead">Tell me about your kitchen and I’ll reply within one working day.</p>
+        <p><a href="tel:+447775877746">07775 877746</a></p>
+        <p><a href="mailto:infoproapex@gmail.com">infoproapex@gmail.com</a></p>
+        <h3 style="margin:2rem 0 .5rem">Areas covered</h3>
+        <ul class="areas">
+          <li>Warwickshire</li><li>Northamptonshire</li><li>Leicestershire</li><li>Surrounding areas on request</li>
+        </ul>
+      </div>
+      <form id="f">
+        <label>Name<input id="n" required autocomplete="name"></label>
+        <label>Phone or email<input id="c" required></label>
+        <label>Job type
+          <select id="t"><option>Fitted kitchen</option><option>Fitted bedroom or wardrobes</option><option>Bathroom</option><option>Home office or living space</option><option>Worktops or appliances</option><option>Doors, windows or painting</option><option>Repairs or adjustments</option></select>
+        </label>
+        <label>Details<textarea id="m" placeholder="Kitchen size, brand, when you’d like it fitted"></textarea></label>
+        <button class="btn" type="submit">Send on WhatsApp</button>
+      </form>
+    </div>
   </section>
 </main>
 
+<footer>
+  <div class="wrap">
+    <span>© 2026 ProApex. Independent company working with Wren Kitchens. Wren is a trademark of its owner.</span>
+    <span>Free quotes</span>
+  </div>
+</footer>
+
 <script>
-/* ===== EDITEAZĂ AICI PRODUSELE =====
-   img = calea poză din folderul "images" (ex: images/usa1.jpg)
-   Adaugă / șterge linii după nevoie. */
-const PRODUCTS=[
- {cat:"Doors",name:"Entrance door – Anthracite",desc:"Supplied and fitted, locks and handles included.",price:"£850",img:"/images/usa1.avif"},
- {cat:"Doors",name:"Internal door – White",desc:"Measured, fitted and made good.",price:"£220",img:"images/usa2.jpg"},
- {cat:"Windows",name:"uPVC window – White",desc:"Fitted level and sealed, with finishing around.",price:"£390",img:"images/fereastra1.jpg"},
- {cat:"Windows",name:"Bay window",desc:"Fitted with brickwork and plaster repaired.",price:"£1,450",img:"images/fereastra2.jpg"},
- {cat:"Kitchens",name:"Fitted kitchen",desc:"Professional fitting, including Howdens and Wren.",price:"from £2,800",img:"images/bucatarie1.jpg"},
- {cat:"Wardrobes",name:"Fitted wardrobe",desc:"Bedroom wardrobes made to measure.",price:"£950",img:"images/dulap1.jpg"},
- {cat:"Painting",name:"Room painting – VOC-free",desc:"Almost no smell. Safe for kids, asthma and allergies.",price:"from £180",img:"images/vopsea1.jpg"}
-];
-const ICONS={Doors:"🚪",Windows:"🪟",Kitchens:"🏠",Wardrobes:"🛏️",Painting:"🎨"};
-const $=s=>document.querySelector(s),snap=$("#snap"),dots=$("#dots"),count=$("#count");
-
-// build slides
-PRODUCTS.forEach((p,i)=>{
-  snap.insertAdjacentHTML("beforeend",`<article class="slide" data-cat="${p.cat}">
-    <div class="ph">Add photo:<br>${p.img}</div>
-    <img src="${p.img}" alt="${p.name}" loading="${i<2?'eager':'lazy'}" onerror="this.remove()">
-    <div class="shade"></div>
-    <div class="info"><span class="tag">${ICONS[p.cat]||""} ${p.cat}</span>
-      <h3>${p.name}</h3><p>${p.desc}</p>
-      <div class="price">${p.price}<small>fitting included</small></div>
-      <a class="btn" href="tel:07775877746">📞 Call for this</a></div>
-  </article>`);
-  dots.insertAdjacentHTML("beforeend","<i></i>");
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var b=encodeURIComponent('Name: '+n.value+'\nContact: '+c.value+'\nJob: '+t.value+'\n\n'+m.value);
+  window.open('https://wa.me/447775877746?text='+encodeURIComponent('Quote request\n')+b,'_blank');
 });
-// home category cards
-const cats=[...new Set(PRODUCTS.map(p=>p.cat))];
-$("#cats").innerHTML=cats.map(c=>`<div class="card" onclick="goCat('${c}')"><div class="ic">${ICONS[c]||"📦"}</div><h3>${c}</h3><p>${PRODUCTS.filter(p=>p.cat==c).length} products, fitting included.</p><em>See catalogue →</em></div>`).join("");
-
-function update(){
-  const i=Math.round(snap.scrollTop/snap.clientHeight);
-  [...dots.children].forEach((d,k)=>d.classList.toggle("on",k==i));
-  count.textContent=(i+1)+" / "+PRODUCTS.length;
-  if(snap.scrollTop>20)$("#hint").style.opacity=0;
-}
-snap.addEventListener("scroll",update,{passive:true});
-
-function show(v){
-  document.querySelectorAll(".view").forEach(e=>e.classList.toggle("on",e.id==v));
-  $("#nh").classList.toggle("on",v=="home");$("#nc").classList.toggle("on",v=="cat");
-  if(v=="cat")update();
-}
-function goCat(c){
-  show("cat");
-  const s=snap.querySelector(`[data-cat="${c}"]`);
-  snap.scrollTo({top:s.offsetTop});update();
-}
-$("#nh").onclick=()=>show("home");$("#nc").onclick=()=>show("cat");
-// tastatura (desktop)
-addEventListener("keydown",e=>{if($("#cat").classList.contains("on")){
-  if(e.key=="ArrowDown")snap.scrollBy({top:snap.clientHeight,behavior:"smooth"});
-  if(e.key=="ArrowUp")snap.scrollBy({top:-snap.clientHeight,behavior:"smooth"});}});
-update();
 </script>
 </body>
 </html>
