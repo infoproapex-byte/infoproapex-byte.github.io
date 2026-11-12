@@ -14,7 +14,7 @@
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#101A18;--surface:#1725222;--surface:#182623;--ink:#EEF1EE;--muted:#A3B0AB;--deep:#0B1412;--deep-ink:#EEF1EE;--line:#2A3A36;--accent:#E0A94F}
+  :root:not([data-theme="light"]){--bg:#101A18;--surface:#182623;--ink:#EEF1EE;--muted:#A3B0AB;--deep:#0B1412;--deep-ink:#EEF1EE;--line:#2A3A36;--accent:#E0A94F}
 }
 :root[data-theme="dark"]{--bg:#101A18;--surface:#182623;--ink:#EEF1EE;--muted:#A3B0AB;--deep:#0B1412;--deep-ink:#EEF1EE;--line:#2A3A36;--accent:#E0A94F}
 *{box-sizing:border-box}
@@ -73,6 +73,9 @@ textarea{min-height:120px;resize:vertical}
 .contact-info a{font-size:1.4rem;font-weight:600}
 footer{background:var(--deep);color:#C7D1CD;padding:2rem 0 calc(2rem + env(safe-area-inset-bottom,0px));font-size:.9rem}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.mark{display:inline-flex;align-items:center;gap:.6rem}
+.mark svg{width:18px;height:18px;opacity:.45;transition:opacity .2s}
+.mark svg:hover{opacity:.9}
 @media (max-width:640px){nav a:not(.btn){display:none}.areas{columns:1}}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
@@ -188,7 +191,14 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.75re
 <footer>
   <div class="wrap">
     <span>© 2026 ProApex. Independent company working with  Kitchens and more . </span>
-    <span>Free quotes</span>
+    <span class="mark">Free quotes
+      <svg viewBox="0 0 28 26" fill="none" stroke="currentColor" stroke-width="1.8"
+           stroke-linecap="square" stroke-linejoin="miter" role="img" aria-label="Measuring tools">
+        <polyline points="4,23 14,3 24,23"/>
+        <polyline points="5,12 14,21 23,12"/>
+        <circle cx="14" cy="3" r="1.4" fill="currentColor" stroke="none"/>
+      </svg>
+    </span>
   </div>
 </footer>
 
