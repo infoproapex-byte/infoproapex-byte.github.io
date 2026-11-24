@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.proapex.co.uk/sitemap.xml
+Sitemap: https://proapex.co.uk/sitemap.xml
