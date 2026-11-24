@@ -1,0 +1,1 @@
+Upload your own project photos here (JPG, PNG or WebP). Add each filename and description to photos.json, for example: [{"file":"kitchen-01.jpg","alt":"Completed kitchen installation in Rugby"}]. Only use photographs you have permission to publish.
